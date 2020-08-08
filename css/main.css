@@ -1,28 +1,110 @@
 html {
-    height: 100px;
-    width: 300px;
+    height: 300px;
+    width: 400px;
 }
 
-.center {
-    width: 90%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+.container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
+.content {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.left {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+.header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    margin: 0 50px 0 0;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #204392;
+}
+
+hr {
+    height: 3px;
+    background-color: #D12626;
+    width: 30px;
+    float: left;
+    border: 0px;
+}
+
+.title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #204392;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.input-container h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #204392;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.border-width {
+    border: 1px solid #D12626;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
+    color: #204392;
+    padding-left: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    max-width: 100px;
+}
+
+.donate-link {
+    margin-top: 45px;
+}
+
+.donate-link img {
+    float: right;
+}
+
+.apply-button {
+    width: 100%;
+    background-color: #D12626;
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    border: 0;
+    text-transform: capitalize;
+    padding: 5px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+}
+
+.notification {
+    width: 100%;
+    margin-top: 20px;
+    height: auto;
+    background-color: #1E9B3B;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px;
+    display: none;
+}
+
+.message {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 14px;
 }

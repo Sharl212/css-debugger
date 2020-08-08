@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    /> -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/js/popup.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <div class='container center'>
-        <p>CSS Debugger</p>
-        <p class="range-field">
-            <input type="range" id="genColor" min="0" max="10" />
-        </p>
-        <small class='left' style="margin-top: 25%">if it doesn't work, refresh the page</small>
-        <a href="https://paypal.me/SharlSherif" class='right' style="margin-top: 25%" target="_blank">
-            <img alt="Donate with PayPal"
-                src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png" width="85px" />
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <h1 class="logo">CSS Debugger</h1>
+        <img class="toggle-button" width="35px" />
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>options</h1>
+          <hr />
+        </div>
+        <form class="input-container" novalidate>
+          <h1>Border (in pixel)</h1>
+          <input placeholder="eg. 2" type="number" class="border-width" />
+          <button class="apply-button" type="submit">apply</button>
+          <div class="notification">
+            <p class="message">
+            </p>
+          </div>
+        </form>
+        <a
+          href="https://paypal.me/SharlSherif"
+          class="donate-link"
+          target="_blank"
+        >
+          <img
+            alt="Donate with PayPal"
+            src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png"
+            width="120px"
+          />
         </a>
+      </div>
+      <!-- <p class="range-field">
+        <input type="range" id="genColor" min="0" max="10" />
+      </p>
+      <small class="left" style="margin-top: 25%; font-size: 12px;"
+        >if it doesn't work, refresh the page</small
+      > -->
     </div>
-</body>
-<script src="./libs/materialize.min.js"></script>
-
+  </body>
+  <script src="./libs/materialize.min.js"></script>
 </html>

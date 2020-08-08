@@ -1,7 +1,7 @@
 {
-    "name": "Getting Started Example",
+    "name": "CSS Debugger",
     "version": "1.0",
-    "description": "Build an Extension!",
+    "description": "Debugger for CSS by highlighting each and every element on the webpage you're developing, makes it easier to spot CSS bugs or misbehaves",
     "manifest_version": 2,
     "permissions":[
         "background",
@@ -14,7 +14,8 @@
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "http://*/*",
+                "https://*/*"
             ],
             "js": ["/libs/randomColors.js", "/js/main.js"]
         }
