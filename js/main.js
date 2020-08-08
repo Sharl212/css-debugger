@@ -3,7 +3,6 @@ chrome.runtime.onMessage.addListener(function (payload, sender, sendResponse) {
     if (localStorage.toggleState !== undefined) {
       if (JSON.parse(localStorage.toggleState) == false) {
         sendResponse("Extension is off");
-        return;
       }
 
       if (JSON.parse(localStorage.toggleState) == true) {
@@ -14,7 +13,9 @@ chrome.runtime.onMessage.addListener(function (payload, sender, sendResponse) {
       console.log("Toggle state was never defined before on this page");
       GenerateBorders(0.00000001);
     }
+    StoreInLocalStorage(payload.type, payload.data);
   } else if (payload.type == "toggleState") {
+    StoreInLocalStorage(payload.type, payload.data);
     console.log("I should remove or add borders", payload.data);
     // extension turned off
     if (payload.data == false) {
@@ -23,8 +24,20 @@ chrome.runtime.onMessage.addListener(function (payload, sender, sendResponse) {
       // extension getting turned on
       GenerateBorders(localStorage.borderWidth);
     }
+  } else if ((payload.type = "checkState")) {
+    if (localStorage.toggleState !== undefined) {
+      if (JSON.parse(localStorage.toggleState) == false) {
+        sendResponse("off");
+      }
+
+      if (JSON.parse(localStorage.toggleState) == true) {
+        sendResponse("on");
+      }
+    } else {
+      StoreInLocalStorage("toggleState", true);
+      sendResponse("on");
+    }
   }
-  StoreInLocalStorage(payload.type, payload.data);
   sendResponse("thanks!");
 });
 
@@ -38,6 +51,8 @@ if (
   } else {
     GenerateBorders(0.00000001);
   }
+} else {
+  console.log("toggle state is not defined so I cant generate the borders");
 }
 
 function GenerateBorders(width) {

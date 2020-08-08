@@ -7,13 +7,13 @@ chrome.tabs.onActivated.addListener((tabId, changeInfo, tab) => {
   });
 });
 
+// if (localStorage.toggleState == undefined) {
+console.log("init toggle button");
+initToggleButtonFirstTime();
+// }
+
 document.addEventListener("DOMContentLoaded", async function load(event) {
-  if (localStorage.toggleState == undefined) {
-    console.log("init toggle button");
-    await initToggleButtonFirstTime();
-  } else {
-    initToggleButtonAlwaysRun();
-  }
+  initToggleButtonAlwaysRun();
 
   const form = document.querySelector(".input-container");
   const toggleButton = document.querySelector(".toggle-button");
@@ -73,12 +73,15 @@ function initToggleButtonAlwaysRun() {
 }
 async function initToggleButtonFirstTime() {
   const currTabId = await getCurrentTabId();
-  const payload = { data: true, type: "toggleState" };
-  StoreInLocalStorage("toggleState", true);
-  document.querySelector(".toggle-button").src = "assets/green-button.svg";
+  const payload = { type: "checkState" };
 
   chrome.tabs.sendMessage(currTabId, payload, function (response) {
     console.log(response);
+    if (response == "on") {
+      StoreInLocalStorage("toggleState", true);
+    } else if (response == "off") {
+      StoreInLocalStorage("toggleState", false);
+    }
   });
 }
 
